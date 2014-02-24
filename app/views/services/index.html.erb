@@ -1,0 +1,7 @@
+<h1>Übersicht aller Dienste</h1>
+
+<ul>
+  <% @services.each do |service| %>
+    <li><%= link_to "#{ service.title } (#{ service.short })", service %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,17 @@
+<h1><%= @service.short %> - <%= @service.title %></h1>
+
+<h2>Artikel</h2>
+<ul>
+  <% @service.articles.order(created_at: :desc).each do |article| %>
+    <li><%= article.title %></li>
+  <% end %>
+</ul>
+
+<h2>Snippets</h2>
+<ul>
+  <% @service.snippets.order(:name).each do |snippet| %>
+    <li><%= snippet.name %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Übersicht", services_path %>
