@@ -1,4 +1,6 @@
 class Service < ActiveRecord::Base
+  has_many :snippets
+
   before_save :make_short_upcase
 
   validates :title, uniqueness: true, presence: true
