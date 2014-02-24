@@ -2,6 +2,8 @@
 
 <ul>
   <% @services.each do |service| %>
-    <li><%= link_to "#{ service.title } (#{ service.short })", service %></li>
+    <li><%= link_to "#{ service.name } (#{ service.short })", service %></li>
   <% end %>
 </ul>
+
+<%= link_to "Neuen Dienst erstellen", new_service_path %>
