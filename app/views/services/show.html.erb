@@ -1,13 +1,21 @@
 <h1><%= @service.short %> - <%= @service.title %></h1>
 
-<h2>Artikel</h2>
+<% if @service.articles.empty? %>
+  <h2>Keine Artikel vorhanden.</h2>
+<% else %>
+  <h2>Artikel</h2>
+<% end %>
 <ul>
   <% @service.articles.order(created_at: :desc).each do |article| %>
     <li><%= article.title %></li>
   <% end %>
 </ul>
 
-<h2>Snippets</h2>
+<% if @service.snippets.empty? %>
+  <h2>Keine Snippets vorhanden.</h2>
+<% else %>
+  <h2>Snippets</h2>
+<% end %>
 <ul>
   <% @service.snippets.order(:name).each do |snippet| %>
     <li><%= snippet.name %></li>
