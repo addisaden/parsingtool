@@ -1,5 +1,6 @@
 class Service < ActiveRecord::Base
   has_many :snippets
+  has_many :articles
 
   before_save :make_short_upcase
 
