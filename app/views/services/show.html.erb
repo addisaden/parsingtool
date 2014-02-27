@@ -1,5 +1,15 @@
 <h1><%= @service.short %> - <%= @service.name %></h1>
 
+<p>
+  <%= link_to "ändern", edit_service_path(@service) %>
+  <%= link_to "löschen",
+              service_path(@service),
+              method: :delete,
+              data: {
+                confirm: "Wollen Sie wirklich #{ @service.name } löschen?"
+              } %>
+</p>
+
 <% if @articles.empty? %>
   <h2>Keine Artikel vorhanden.</h2>
 <% else %>

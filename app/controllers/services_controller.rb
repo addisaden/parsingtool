@@ -23,6 +23,27 @@ class ServicesController < ApplicationController
     end
   end
 
+  def edit
+    @service = Service.find(params[:id])
+  end
+
+  def update
+    @service = Service.find(params[:id])
+    if @service.update(params[:service].permit(:name, :short))
+      redirect_to service_path(@service)
+    else
+      redirect_to edit_service_path(@service),
+        flash: "Konnte nicht geändert werden."
+    end
+  end
+
+  def destroy
+    @service = Service.find(params[:id])
+    @service.destroy
+
+    redirect_to services_path
+  end
+
   private
 
   def service_params
