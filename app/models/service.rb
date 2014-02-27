@@ -1,6 +1,6 @@
 class Service < ActiveRecord::Base
-  has_many :snippets
-  has_many :articles
+  has_many :snippets, dependent: :destroy
+  has_many :articles, dependent: :destroy
 
   before_save :make_short_upcase
 
